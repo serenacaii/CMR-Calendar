@@ -1,8 +1,5 @@
-import { Calendar } from '@fullcalendar/core';
-import googleCalendarPlugin from '@fullcalendar/google-calendar';
-import dayGridPlugin from '@fullcalendar/daygrid';
-import timeGridPlugin from '@fullcalendar/timegrid';
-import listPlugin from '@fullcalendar/list';
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@fullcalendar/google-calendar@6.1.15/index.global.min.js"></script>
 
 "use strict";
 window.Webflow ||=[];
