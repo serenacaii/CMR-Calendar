@@ -1,13 +1,13 @@
-
-
-
-
 import { Calendar } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import listPlugin from '@fullcalendar/list';
 import timeGridPlugin from '@fullcalendar/timegrid';
 
-import type { Event } from 'types.ts';
+import googleCalendarPlugin from '@fullcalendar/google-calendar';
+...
+let calendar = new Calendar(calendarEl, {
+  plugins: [ googleCalendarPlugin ]
+});
 
 "use strict";
 window.Webflow ||=[];
@@ -22,16 +22,11 @@ window.Webflow.push(()=>{
     console.log({ events });
   
     const calendar = new Calendar(calendarElement, {
-      plugins: [dayGridPlugin, timeGridPlugin, listPlugin],
-      initialView: 'dayGridMonth',
-      displayEventTime: true,
-      headerToolbar: {
-        left: 'prev,next today',
-        center: 'title',
-        right: 'dayGridMonth,timeGridWeek',
-      },
-  
-      events,
+        plugins: [ googleCalendarPlugin ],
+        googleCalendarApiKey: 'AIzaSyDdtDvEJIckRjndvDW2Tfe8HTAfb-N72ds',
+        events: {
+          googleCalendarId: 'siditj1n00ctlfb9f5legqc87o@group.calendar.google.com'
+        }
   
     });
   
@@ -39,16 +34,4 @@ window.Webflow.push(()=>{
     
 });
 
-const getEvents = (): Event[] => {
-    const scripts = document.querySelectorAll<HTMLScriptElement>('[data-element="event-data"]');
-    console.log({ scripts });
-    const events = [...scripts].map((script) => {
-      const event: Event = JSON.parse(script.textContent!);
-      event.start = new Date(event.start);
-      event.end = new Date(event.end);
-  
-      return event;
-    });
-  
-    return events;
-  };
+
