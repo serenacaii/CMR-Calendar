@@ -1,13 +1,6 @@
 import { Calendar } from '@fullcalendar/core';
-import dayGridPlugin from '@fullcalendar/daygrid';
-import listPlugin from '@fullcalendar/list';
-import timeGridPlugin from '@fullcalendar/timegrid';
-
 import googleCalendarPlugin from '@fullcalendar/google-calendar';
-...
-let calendar = new Calendar(calendarEl, {
-  plugins: [ googleCalendarPlugin ]
-});
+
 
 "use strict";
 window.Webflow ||=[];
